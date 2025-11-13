@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>qriOS Framework Documentation</title>
+    <title>Livewire Framework Documentation</title>
     <style>
 * {
 	margin: 0;
@@ -216,7 +216,7 @@ tr:nth-child(even) {
 </head>
 <body>
     <div class="container">
-        <h1>qriOS Framework Documentation</h1>
+        <h1>Livewire Framework Documentation</h1>
         
         <div class="highlight-box">
             <p><strong>Version:</strong> 1.0 (Proof of Concept)</p>
@@ -247,12 +247,12 @@ tr:nth-child(even) {
 
         <h2 id="overview">1. Overview</h2>
         
-        <h3>What is qriOS?</h3>
-        <p>qriOS is a lightweight, server-driven web application framework that delivers UI components dynamically as JSON payloads. It combines the best aspects of traditional server-rendered applications with modern single-page application architectures, while maintaining a minimal footprint of just 18KB.</p>
+        <h3>What is Livewire?</h3>
+        <p>Livewire is a lightweight, server-driven web application framework that delivers UI components dynamically as JSON payloads. It combines the best aspects of traditional server-rendered applications with modern single-page application architectures, while maintaining a minimal footprint of just 18KB.</p>
 
         <div class="success-box">
             <h4>Key Innovation</h4>
-            <p>Unlike traditional frameworks that ship all code upfront, qriOS delivers <strong>code as data</strong>. The server decides what UI components the client receives based on session state, user roles, and application logic.</p>
+            <p>Unlike traditional frameworks that ship all code upfront, Livewire delivers <strong>code as data</strong>. The server decides what UI components the client receives based on session state, user roles, and application logic.</p>
         </div>
 
         <h3>Design Philosophy</h3>
@@ -265,11 +265,11 @@ tr:nth-child(even) {
             <li><strong>Hot Code Reload:</strong> Edit code, next poll delivers updates</li>
         </ul>
 
-        <h3>Why qriOS?</h3>
+        <h3>Why Livewire?</h3>
         <table>
             <tr>
                 <th>Traditional Approach</th>
-                <th>qriOS Approach</th>
+                <th>Livewire Approach</th>
             </tr>
             <tr>
                 <td>Ship entire application upfront (2MB+)</td>
@@ -344,7 +344,7 @@ tr:nth-child(even) {
         </ol>
 
         <h3>Adaptive Polling</h3>
-        <p>qriOS uses intelligent polling that adapts to activity:</p>
+        <p>Livewire uses intelligent polling that adapts to activity:</p>
         <ul>
             <li><strong>Fast mode (200ms):</strong> When code is being injected or user is active</li>
             <li><strong>Slow mode (2000ms):</strong> When idle, reduces server load</li>
@@ -353,7 +353,7 @@ tr:nth-child(even) {
 
         <div class="highlight-box">
             <h4>Upgrade Path: WebSockets</h4>
-            <p>While polling is simple and reliable, qriOS can easily upgrade to WebSockets for true real-time push. The architecture is identical—just replace the polling loop with WebSocket message handling.</p>
+            <p>While polling is simple and reliable, Livewire can easily upgrade to WebSockets for true real-time push. The architecture is identical—just replace the polling loop with WebSocket message handling.</p>
         </div>
 
         <h2 id="core-concepts">3. Core Concepts</h2>
@@ -385,12 +385,12 @@ function loginHandler(objOS_a, strHandlerID_a, objParameters_a) {
         <pre><code>// Traditional (global)
 $('.geLoginButton').click(...);  // Affects ALL login buttons
 
-// qriOS (scoped)
+// Livewire (scoped)
 os.element(m_strHandlerID, 'geLoginButton').bind('click', ...);  
 // Only affects THIS handler's button</code></pre>
 
         <h3>Class Naming Conventions</h3>
-        <p>qriOS uses Hungarian notation for CSS classes:</p>
+        <p>Livewire uses Hungarian notation for CSS classes:</p>
         <ul>
             <li><strong>ge</strong> prefix = Element (interactive, semantic)</li>
             <li><strong>gs</strong> prefix = Style only (presentational)</li>
@@ -509,7 +509,7 @@ $objSession->states(['guest'], []);  // Remove guest, add nothing</code></pre>
         <h3>Requirements</h3>
         <div class="success-box">
             <h4>Maximum Compatibility by Design</h4>
-            <p>qriOS intentionally targets older technology to ensure it runs on the widest possible range of infrastructure, from embedded systems to legacy enterprise environments.</p>
+            <p>Livewire intentionally targets older technology to ensure it runs on the widest possible range of infrastructure, from embedded systems to legacy enterprise environments.</p>
         </div>
         <ul>
             <li><strong>PHP 5.4+</strong> (works through PHP 8.x)
@@ -532,7 +532,7 @@ $objSession->states(['guest'], []);  // Remove guest, add nothing</code></pre>
 
         <div class="highlight-box">
             <h4>Why This Matters</h4>
-            <p>While modern frameworks require Node.js 18+, webpack 5, PHP 8.2+, and cutting-edge browsers, qriOS runs on a 2012 PHP server with a 2011 browser. This opens markets that other frameworks cannot serve: government systems frozen for security certification, industrial equipment with 20-year lifecycles, medical devices with FDA-locked software versions, and developing markets with older infrastructure.</p>
+            <p>While modern frameworks require Node.js 18+, webpack 5, PHP 8.2+, and cutting-edge browsers, Livewire runs on a 2012 PHP server with a 2011 browser. This opens markets that other frameworks cannot serve: government systems frozen for security certification, industrial equipment with 20-year lifecycles, medical devices with FDA-locked software versions, and developing markets with older infrastructure.</p>
         </div>
 
         <h3>Installation</h3>
@@ -573,7 +573,7 @@ define('RESPONSE_NOERROR', 0);
 define('RESPONSE_ERROR', 1);</code></pre>
 
         <h4>Client Configuration (inc-constants.js)</h4>
-        <pre><code>var APPTITLE = 'qriOS Demo';
+        <pre><code>var APPTITLE = 'Livewire Demo';
 
 // Optional: Multi-server support
 var SERVERS = {
@@ -585,7 +585,7 @@ var SERVERS = {
         <p>Open <code>index.html</code> in a browser. You should see:</p>
         <ol>
             <li>Static HTML shell loads instantly</li>
-            <li>qriOS initializes</li>
+            <li>Livewire initializes</li>
             <li>Polling begins</li>
             <li>Server sends login handler</li>
             <li>Login form appears</li>
@@ -900,7 +900,7 @@ else if ($objSession->hasStates(['loggedIn']) &&
         <h2 id="session-management">9. Session Management</h2>
 
         <h3>Session Storage Options</h3>
-        <p>qriOS supports two session storage backends:</p>
+        <p>Livewire supports two session storage backends:</p>
 
         <h4>File-Based (Default)</h4>
         <pre><code>define('DB_SESSIONS', false);
@@ -957,7 +957,7 @@ $arrPrefs = $objSession->getData('preferences');</code></pre>
         <h2 id="database">10. Database Layer</h2>
 
         <h3>Database Functions</h3>
-        <p>qriOS provides a lightweight PDO wrapper with nested transaction support:</p>
+        <p>Livewire provides a lightweight PDO wrapper with nested transaction support:</p>
 
         <h4>Opening a Connection</h4>
         <pre><code>$objDB = dbOpen(DB_HOST, DB_USER, DB_PASS, DB_NAME);</code></pre>
@@ -1048,7 +1048,7 @@ $strSQL = str_replace('~ID~', ff($intID), $strSQL);</code></pre>
         <h2 id="advanced-features">11. Advanced Features</h2>
 
         <h3>Multi-Server Support</h3>
-        <p>qriOS can communicate with multiple backend servers:</p>
+        <p>Livewire can communicate with multiple backend servers:</p>
 
         <h4>Configuration</h4>
         <pre><code>// inc-constants.js
@@ -1114,7 +1114,7 @@ window.addEventListener('offline', function() {
 });</code></pre>
 
         <h3>ZOSCII Integration</h3>
-        <p>qriOS can integrate with ZOSCII for quantum-proof security:</p>
+        <p>Livewire can integrate with ZOSCII for quantum-proof security:</p>
 
         <h4>ZOSCII Decoding</h4>
         <pre><code>this.zosciiDecode = function(arrAddresses_a, arrRomData_a) {
@@ -1181,12 +1181,12 @@ self.addEventListener('install', function(event) {
 
         <h2 id="comparison">12. Comparison to Other Frameworks</h2>
 
-        <h3>qriOS vs React/Vue/Angular</h3>
+        <h3>Livewire vs React/Vue/Angular</h3>
         <table>
             <tr>
                 <th>Feature</th>
                 <th>React/Vue/Angular</th>
-                <th>qriOS</th>
+                <th>Livewire</th>
             </tr>
             <tr>
                 <td>Initial Bundle Size</td>
@@ -1235,12 +1235,12 @@ self.addEventListener('install', function(event) {
             </tr>
         </table>
 
-        <h3>qriOS vs Meteor</h3>
+        <h3>Livewire vs Meteor</h3>
         <table>
             <tr>
                 <th>Feature</th>
                 <th>Meteor</th>
-                <th>qriOS</th>
+                <th>Livewire</th>
             </tr>
             <tr>
                 <td>Data on Wire</td>
@@ -1279,12 +1279,12 @@ self.addEventListener('install', function(event) {
             </tr>
         </table>
 
-        <h3>qriOS vs Traditional PHP/JS Hybrid</h3>
+        <h3>Livewire vs Traditional PHP/JS Hybrid</h3>
         <table>
             <tr>
                 <th>Aspect</th>
                 <th>PHP Hybrid</th>
-                <th>qriOS</th>
+                <th>Livewire</th>
             </tr>
             <tr>
                 <td>PHP Version</td>
@@ -1418,7 +1418,7 @@ header("Content-Security-Policy: default-src 'self'; " .
 
         <h3>Completed (POC Phase)</h3>
         <ul class="checkmark">
-            <li>✓ Core qriOS substrate (18KB)</li>
+            <li>✓ Core Livewire substrate (18KB)</li>
             <li>✓ Livewire code delivery system</li>
             <li>✓ Handler pattern and lifecycle</li>
             <li>✓ Session management (file and DB)</li>
@@ -1488,12 +1488,12 @@ header("Content-Security-Policy: default-src 'self'; " .
 
         <div class="highlight-box">
             <h4>Community Involvement</h4>
-            <p>qriOS is designed to be extensible and community-driven. We welcome contributions, feedback, and ideas from developers who see the potential in this architecture.</p>
+            <p>Livewire is designed to be extensible and community-driven. We welcome contributions, feedback, and ideas from developers who see the potential in this architecture.</p>
         </div>
 
         <h2>Conclusion</h2>
 
-        <p>qriOS represents a fundamentally different approach to web application architecture. By treating code as data and giving the server control over UI delivery, it achieves:</p>
+        <p>Livewire represents a fundamentally different approach to web application architecture. By treating code as data and giving the server control over UI delivery, it achieves:</p>
 
         <ul>
             <li><strong>Simplicity:</strong> No build tools, no complex state management, no routing libraries</li>
@@ -1503,11 +1503,11 @@ header("Content-Security-Policy: default-src 'self'; " .
             <li><strong>Speed:</strong> Both development velocity and runtime performance</li>
         </ul>
 
-        <p>Built in a single day as a proof-of-concept, qriOS demonstrates that revolutionary architecture doesn't require years of development or massive teams. Sometimes, the best solution is the one that questions fundamental assumptions and builds from first principles.</p>
+        <p>Built in a single day as a proof-of-concept, Livewire demonstrates that revolutionary architecture doesn't require years of development or massive teams. Sometimes, the best solution is the one that questions fundamental assumptions and builds from first principles.</p>
 
         <div class="success-box">
             <h4>Get Started</h4>
-            <p>The complete qriOS codebase is available for evaluation. Try building a handler—you'll be surprised how quickly you can create functional, production-ready components.</p>
+            <p>The complete Livewire codebase is available for evaluation. Try building a handler—you'll be surprised how quickly you can create functional, production-ready components.</p>
         </div>
 
     </div>
