@@ -1,0 +1,19 @@
+.gsCentified 
+{
+    text-align: center;
+}
+
+.gsHidden 
+{
+    display: none !important;
+}
+
+.gsLeftified 
+{
+    text-align: left;
+}
+
+.gsRightified 
+{
+    text-align: right;
+}

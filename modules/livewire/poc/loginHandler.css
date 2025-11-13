@@ -1,0 +1,47 @@
+/* loginHandler.css */
+.geLoginHandler {
+    max-width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.geLoginHandler h2 {
+    text-align: center;
+}
+
+.geLoginHandler div {
+    margin: 10px 0;
+}
+
+.geLoginHandler label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.geLoginHandler input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.geLoginHandler button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.geLoginHandler button:hover {
+    background-color: #0056b3;
+}
+
+.geLoginMessage {
+    margin-top: 10px;
+    text-align: center;
+    color: red;
+}

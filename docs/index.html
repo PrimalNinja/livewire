@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>qriOS Framework Documentation</title>
+    <style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	line-height: 1.6;
+	color: #333;
+	background: #f5f5f5;
+	padding: 20px;
+}
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	background: white;
+	padding: 40px;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+h1 {
+	color: #2c3e50;
+	border-bottom: 3px solid #3498db;
+	padding-bottom: 10px;
+	margin-bottom: 30px;
+	font-size: 2.5em;
+}
+h2 {
+	color: #2c3e50;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	font-size: 1.8em;
+	border-left: 4px solid #3498db;
+	padding-left: 15px;
+}
+h3 {
+	color: #34495e;
+	margin-top: 30px;
+	margin-bottom: 15px;
+	font-size: 1.4em;
+}
+h4 {
+	color: #34495e;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-size: 1.1em;
+}
+p {
+	margin-bottom: 15px;
+}
+ul, ol {
+	margin-left: 30px;
+	margin-bottom: 15px;
+}
+li {
+	margin-bottom: 8px;
+}
+code {
+	background: #f4f4f4;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 2px 6px;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 0.9em;
+	color: #c7254e;
+}
+pre {
+	background: #282c34;
+	color: #abb2bf;
+	padding: 20px;
+	border-radius: 5px;
+	overflow-x: auto;
+	margin: 20px 0;
+	border-left: 4px solid #3498db;
+}
+pre code {
+	background: none;
+	border: none;
+	color: inherit;
+	padding: 0;
+}
+.footer {
+	max-width: 1200px;
+	margin: 0 auto;
+	background: white;
+	padding: 0px 10px 10px 10px;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+	text-align: center;
+}
+.toc {
+	background: #f8f9fa;
+	border: 1px solid #dee2e6;
+	border-radius: 5px;
+	padding: 20px 30px;
+	margin: 30px 0;
+}
+.toc h2 {
+	margin-top: 0;
+	border: none;
+	padding: 0;
+}
+.toc ul {
+	list-style: none;
+	margin-left: 0;
+}
+.toc li {
+	margin-bottom: 5px;
+}
+.toc a {
+	color: #3498db;
+	text-decoration: none;
+}
+.toc a:hover {
+	text-decoration: underline;
+}
+.highlight-box {
+	background: #e8f4f8;
+	border-left: 4px solid #3498db;
+	padding: 15px;
+	margin: 20px 0;
+}
+.warning-box {
+	background: #fff3cd;
+	border-left: 4px solid #ffc107;
+	padding: 15px;
+	margin: 20px 0;
+}
+.success-box {
+	background: #d4edda;
+	border-left: 4px solid #28a745;
+	padding: 15px;
+	margin: 20px 0;
+}
+.danger-box {
+	background: #f8d7da;
+	border-left: 4px solid #dc3545;
+	padding: 15px;
+	margin: 20px 0;
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 20px 0;
+}
+th {
+	background: #3498db;
+	color: white;
+	padding: 12px;
+	text-align: left;
+}
+td {
+	border: 1px solid #ddd;
+	padding: 10px;
+}
+tr:nth-child(even) {
+	background: #f9f9f9;
+}
+.checkmark {
+	color: #28a745;
+	font-weight: bold;
+}
+.xmark {
+	color: #dc3545;
+	font-weight: bold;
+}
+.support-box {
+  background: #ffff99;
+  border: 2px solid #ff0000;
+  color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 10px 0;
+  font-size: 12px;
+}
+.support-box h2 {
+  margin: 0;
+  border-left: 0;
+  font-size: 14px;
+}
+.support-box p {
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+.support-box .btn {
+  margin-top: 5px;
+  background: #ff0000;
+  color: #ffff99;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.support-box .btn:hover {
+  background: #cc0000;
+}
+@media print {
+	body {
+		background: white;
+		padding: 0;
+	}
+	
+	.container {
+		box-shadow: none;
+		padding: 20px;
+	}
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>qriOS Framework Documentation</h1>
+        
+        <div class="highlight-box">
+            <p><strong>Version:</strong> 1.0 (Proof of Concept)</p>
+            <p><strong>Author:</strong> Cyborg Unicorn Pty Ltd</p>
+            <p><strong>Date:</strong> November 12, 2025</p>
+            <p><strong>Framework Size:</strong> 18KB (core substrate)</p>
+        </div>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#overview">1. Overview</a></li>
+                <li><a href="#architecture">2. Architecture</a></li>
+                <li><a href="#core-concepts">3. Core Concepts</a></li>
+                <li><a href="#file-structure">4. File Structure</a></li>
+                <li><a href="#getting-started">5. Getting Started</a></li>
+                <li><a href="#handler-development">6. Handler Development</a></li>
+                <li><a href="#server-modules">7. Server Modules</a></li>
+                <li><a href="#livewire-system">8. Livewire System</a></li>
+                <li><a href="#session-management">9. Session Management</a></li>
+                <li><a href="#database">10. Database Layer</a></li>
+                <li><a href="#advanced-features">11. Advanced Features</a></li>
+                <li><a href="#comparison">12. Comparison to Other Frameworks</a></li>
+                <li><a href="#security">13. Security Considerations</a></li>
+                <li><a href="#roadmap">14. Roadmap Ideas</a></li>
+            </ul>
+        </div>
+
+        <h2 id="overview">1. Overview</h2>
+        
+        <h3>What is qriOS?</h3>
+        <p>qriOS is a lightweight, server-driven web application framework that delivers UI components dynamically as JSON payloads. It combines the best aspects of traditional server-rendered applications with modern single-page application architectures, while maintaining a minimal footprint of just 18KB.</p>
+
+        <div class="success-box">
+            <h4>Key Innovation</h4>
+            <p>Unlike traditional frameworks that ship all code upfront, qriOS delivers <strong>code as data</strong>. The server decides what UI components the client receives based on session state, user roles, and application logic.</p>
+        </div>
+
+        <h3>Design Philosophy</h3>
+        <ul>
+            <li><strong>Server Authority:</strong> Server controls what the client sees and can do</li>
+            <li><strong>Minimal Substrate:</strong> Tiny client framework, everything else delivered dynamically</li>
+            <li><strong>Code as Data:</strong> UI components transmitted as JSON payloads</li>
+            <li><strong>State-Driven:</strong> Session states determine UI delivery</li>
+            <li><strong>Zero Build Complexity:</strong> No webpack, no babel, no build step</li>
+            <li><strong>Hot Code Reload:</strong> Edit code, next poll delivers updates</li>
+        </ul>
+
+        <h3>Why qriOS?</h3>
+        <table>
+            <tr>
+                <th>Traditional Approach</th>
+                <th>qriOS Approach</th>
+            </tr>
+            <tr>
+                <td>Ship entire application upfront (2MB+)</td>
+                <td>Ship 18KB substrate, load components on-demand</td>
+            </tr>
+            <tr>
+                <td>Client-side routing and state management</td>
+                <td>Server-driven state machine determines UI</td>
+            </tr>
+            <tr>
+                <td>Complex build pipelines</td>
+                <td>Zero build step required</td>
+            </tr>
+            <tr>
+                <td>Code visible in browser DevTools</td>
+                <td>Code only exists when server delivers it</td>
+            </tr>
+            <tr>
+                <td>Hard to update deployed apps</td>
+                <td>Instant hot reload, no cache invalidation</td>
+            </tr>
+        </table>
+
+        <h2 id="architecture">2. Architecture</h2>
+
+        <h3>High-Level Overview</h3>
+        <pre><code>┌─────────────────────────────────────┐
+│         Client (Browser)            │
+├─────────────────────────────────────┤
+│  ┌──────────────────────────────┐  │
+│  │   index.html (static)        │  │ ← Minimal HTML shell
+│  │   inc-os.js (18KB)           │  │ ← Core framework
+│  └──────────────────────────────┘  │
+│                                     │
+│  ┌──────────────────────────────┐  │
+│  │   Handlers (Injected)        │  │ ← Delivered as JSON
+│  │   - loginHandler.js          │  │
+│  │   - frameHandler.js          │  │
+│  │   - chartHandler.js          │  │
+│  └──────────────────────────────┘  │
+└─────────────────────────────────────┘
+         ↕ (JSON-RPC over HTTP)
+┌─────────────────────────────────────┐
+│       Backend (PHP)                 │
+│  ┌───────────────────────────────┐ │
+│  │   server.php (entry point)    │ │
+│  └───────────────────────────────┘ │
+│  ┌───────────────────────────────┐ │
+│  │   Modules                     │ │
+│  │   - livewire (code delivery)  │ │
+│  │   - security (auth)           │ │
+│  │   - system (utilities)        │ │
+│  └───────────────────────────────┘ │
+│  ┌───────────────────────────────┐ │
+│  │   Session Management          │ │
+│  │   - File or DB storage        │ │
+│  │   - State machine             │ │
+│  └───────────────────────────────┘ │
+└─────────────────────────────────────┘</code></pre>
+
+        <h3>Data Flow</h3>
+        <ol>
+            <li><strong>Client initializes</strong> - Loads static HTML and inc-os.js</li>
+            <li><strong>Polling begins</strong> - Client polls server every 200-2000ms</li>
+            <li><strong>Server checks state</strong> - Session state determines response</li>
+            <li><strong>Livewire delivers code</strong> - Server sends handlers as base64-encoded JSON</li>
+            <li><strong>Client injects</strong> - Decodes and injects HTML/CSS/JS into DOM</li>
+            <li><strong>Handler executes</strong> - Instantiates handler, binds events</li>
+            <li><strong>User interacts</strong> - Handler calls server functions via JSON-RPC</li>
+            <li><strong>State changes</strong> - Server updates session state</li>
+            <li><strong>New handlers delivered</strong> - Cycle repeats with new UI</li>
+        </ol>
+
+        <h3>Adaptive Polling</h3>
+        <p>qriOS uses intelligent polling that adapts to activity:</p>
+        <ul>
+            <li><strong>Fast mode (200ms):</strong> When code is being injected or user is active</li>
+            <li><strong>Slow mode (2000ms):</strong> When idle, reduces server load</li>
+            <li><strong>Random initial delay:</strong> Prevents thundering herd on startup</li>
+        </ul>
+
+        <div class="highlight-box">
+            <h4>Upgrade Path: WebSockets</h4>
+            <p>While polling is simple and reliable, qriOS can easily upgrade to WebSockets for true real-time push. The architecture is identical—just replace the polling loop with WebSocket message handling.</p>
+        </div>
+
+        <h2 id="core-concepts">3. Core Concepts</h2>
+
+        <h3>Handlers</h3>
+        <p>A <strong>handler</strong> is a self-contained UI component consisting of three files:</p>
+        <ul>
+            <li><strong>handlerName.html</strong> - Template markup</li>
+            <li><strong>handlerName.css</strong> - Styling (optional)</li>
+            <li><strong>handlerName.js</strong> - Logic and event binding</li>
+        </ul>
+
+        <p>Handlers are:</p>
+        <ul>
+            <li>Completely isolated (no global pollution)</li>
+            <li>Reusable across projects</li>
+            <li>Hot-reloadable (edit on server, client updates)</li>
+            <li>Nestable (handlers can contain other handlers)</li>
+        </ul>
+
+        <h4>Handler Naming Convention</h4>
+        <pre><code>// Function name = handlerName + "Handler"
+function loginHandler(objOS_a, strHandlerID_a, objParameters_a) {
+    // Handler implementation
+}</code></pre>
+
+        <h3>Element Scoping</h3>
+        <p>Each handler instance has a unique ID. Element selection is scoped to that ID:</p>
+        <pre><code>// Traditional (global)
+$('.geLoginButton').click(...);  // Affects ALL login buttons
+
+// qriOS (scoped)
+os.element(m_strHandlerID, 'geLoginButton').bind('click', ...);  
+// Only affects THIS handler's button</code></pre>
+
+        <h3>Class Naming Conventions</h3>
+        <p>qriOS uses Hungarian notation for CSS classes:</p>
+        <ul>
+            <li><strong>ge</strong> prefix = Element (interactive, semantic)</li>
+            <li><strong>gs</strong> prefix = Style only (presentational)</li>
+            <li><strong>gb</strong> prefix = Behavior only (JavaScript hooks)</li>
+        </ul>
+
+        <pre><code>&lt;div class="geLoginForm"&gt;  &lt;!-- Element: semantic meaning --&gt;
+    &lt;input class="geUsername" /&gt;  &lt;!-- Element: interactive --&gt;
+    &lt;button class="geLoginButton gsPrimaryButton"&gt;Login&lt;/button&gt;
+    &lt;!-- ge: semantic, gs: styling --&gt;
+&lt;/div&gt;</code></pre>
+
+        <h3>Session States</h3>
+        <p>The server maintains a list of state flags for each session:</p>
+        <pre><code>// Check states
+if ($objSession->hasStates(['loggedIn', 'admin'])) {
+    // User is logged in AND admin
+}
+
+// Modify states
+$objSession->states(['oldState'], ['newState']);  // Remove, Add
+$objSession->states(['*'], ['loggedIn']);  // Clear all, add loggedIn
+$objSession->states(['guest'], []);  // Remove guest, add nothing</code></pre>
+
+        <p>States drive UI delivery:</p>
+        <pre><code>if (!$objSession->hasStates(['loggedIn'])) {
+    // Send login form
+    $arrResponse[] = livewireServe('poc', 'login', ...);
+} else {
+    // Send main application
+    $arrResponse[] = livewireServe('poc', 'frame', ...);
+}</code></pre>
+
+        <h3>JSON-RPC Communication</h3>
+        <p>All client-server communication uses a simple JSON-RPC format:</p>
+
+        <h4>Request Format</h4>
+        <pre><code>{
+    "sessioncookie": "abc-123-def-456",
+    "dataid": 42,
+    "function": "security.login",
+    "parameters": [
+        {"name": "username", "value": "admin"},
+        {"name": "importantword", "value": "password"}
+    ]
+}</code></pre>
+
+        <h4>Response Format</h4>
+        <pre><code>{
+    "dataid": 42,
+    "responsecode": 0,  // 0 = success, 1 = error
+    "message": "",
+    "response": {
+        "success": true,
+        // ... handler-specific data
+    }
+}</code></pre>
+
+        <h2 id="file-structure">4. File Structure</h2>
+
+        <h3>Project Layout</h3>
+        <pre><code>/webapp
+  index.html              ← Static HTML shell
+  server.php              ← Entry point
+  
+  /inc-os.js              ← Core framework (18KB)
+  /inc-constants.js       ← Client config
+  /inc-utils.js           ← Client utilities
+  
+  inc-constants.php       ← Server config
+  inc-database.php        ← Database wrapper
+  inc-sessions.php        ← Session management
+  inc-utils.php           ← Server utilities
+  
+  /modules
+    /livewire             ← Code delivery module
+      inc-entry.php       ← Module dispatcher
+      livewireListen.php  ← Main polling handler
+      livewireServe.php   ← Handler packager
+      /poc                ← Handler submodule
+        loginHandler.html
+        loginHandler.js
+        loginHandler.css
+        frameHandler.html
+        frameHandler.js
+        chartHandler.html
+        chartHandler.js
+    
+    /security             ← Authentication module
+      inc-entry.php
+      securityLogin.php
+      securityLogout.php
+    
+    /system               ← System utilities
+      inc-entry.php
+      systemPing.php
+      systemGetDatabaseName.php
+  
+  /sessions               ← File-based sessions (if enabled)
+  /logs                   ← Error logs
+  schema.sql              ← Database schema</code></pre>
+
+        <h3>Module Structure</h3>
+        <p>Each module follows a consistent pattern:</p>
+        <pre><code>/modules/modulename
+  inc-entry.php           ← Dispatcher (registers functions)
+  function1.php           ← Implementation
+  function2.php
+  /submodule              ← Optional submodules
+    handler1.html
+    handler1.js
+    handler1.css</code></pre>
+
+        <h2 id="getting-started">5. Getting Started</h2>
+
+        <h3>Requirements</h3>
+        <div class="success-box">
+            <h4>Maximum Compatibility by Design</h4>
+            <p>qriOS intentionally targets older technology to ensure it runs on the widest possible range of infrastructure, from embedded systems to legacy enterprise environments.</p>
+        </div>
+        <ul>
+            <li><strong>PHP 5.4+</strong> (works through PHP 8.x)
+                <ul>
+                    <li>Intentionally compatible with PHP 5.4 (2012) for maximum deployment flexibility</li>
+                    <li>Works on ancient shared hosting, embedded systems, and legacy government infrastructure</li>
+                    <li>PHP 7.4+ recommended for production (security updates), but not required</li>
+                </ul>
+            </li>
+            <li><strong>ES5 JavaScript</strong> (IE9+ and all modern browsers)
+                <ul>
+                    <li>No transpilation required—code runs natively in any browser from 2011 onwards</li>
+                    <li>No build step, no Babel, no webpack needed</li>
+                    <li>Perfect for embedded WebViews, industrial HMI terminals, and legacy systems</li>
+                </ul>
+            </li>
+            <li>Web server (Apache, Nginx, or PHP built-in server)</li>
+            <li>Optional: MySQL/MariaDB for database sessions (file-based sessions work without)</li>
+        </ul>
+
+        <div class="highlight-box">
+            <h4>Why This Matters</h4>
+            <p>While modern frameworks require Node.js 18+, webpack 5, PHP 8.2+, and cutting-edge browsers, qriOS runs on a 2012 PHP server with a 2011 browser. This opens markets that other frameworks cannot serve: government systems frozen for security certification, industrial equipment with 20-year lifecycles, medical devices with FDA-locked software versions, and developing markets with older infrastructure.</p>
+        </div>
+
+        <h3>Installation</h3>
+        <ol>
+            <li>Copy all files to web server directory</li>
+            <li>Configure <code>inc-constants.php</code></li>
+            <li>Create <code>sessions</code> and <code>logs</code> directories</li>
+            <li>Set appropriate permissions (writable)</li>
+            <li>If using database: Import <code>schema.sql</code></li>
+            <li>Access via web browser</li>
+        </ol>
+
+        <h3>Configuration</h3>
+
+        <h4>Server Configuration (inc-constants.php)</h4>
+        <pre><code>&lt;?php
+// Module list
+$MODULES = ['livewire', 'security', 'system'];
+
+// Security
+define('ALLOW_GET', false);  // Disable GET requests
+
+// Paths
+define('DIR_MODULES', './modules/');
+define('DIR_SESSIONS', './sessions/');
+define('LOG_ERROR', './logs/error.log');
+
+// Database
+define('DB_ENABLED', false);      // Enable database
+define('DB_SESSIONS', false);     // Use DB for sessions
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', 'root');
+define('DB_NAME', 'qri');
+
+// Response codes
+define('RESPONSE_NOERROR', 0);
+define('RESPONSE_ERROR', 1);</code></pre>
+
+        <h4>Client Configuration (inc-constants.js)</h4>
+        <pre><code>var APPTITLE = 'qriOS Demo';
+
+// Optional: Multi-server support
+var SERVERS = {
+    'default': 'server.php',
+    'api': 'https://api.example.com/v1'
+};</code></pre>
+
+        <h3>Quick Start</h3>
+        <p>Open <code>index.html</code> in a browser. You should see:</p>
+        <ol>
+            <li>Static HTML shell loads instantly</li>
+            <li>qriOS initializes</li>
+            <li>Polling begins</li>
+            <li>Server sends login handler</li>
+            <li>Login form appears</li>
+        </ol>
+
+        <p>Default credentials: <code>admin</code> / <code>password</code></p>
+
+        <h2 id="handler-development">6. Handler Development</h2>
+
+        <h3>Creating a New Handler</h3>
+        <p>Follow this 3-file pattern:</p>
+
+        <h4>1. handlerName.html</h4>
+        <pre><code>&lt;div class="geMyHandler"&gt;
+    &lt;h2 class="geTitle"&gt;&lt;/h2&gt;
+    &lt;button class="geActionButton"&gt;Click Me&lt;/button&gt;
+    &lt;div class="geContent"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <h4>2. handlerName.css (optional)</h4>
+        <pre><code>.geMyHandler {
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+}
+
+.geActionButton {
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}</code></pre>
+
+        <h4>3. handlerName.js</h4>
+        <pre><code>function myHandler(objOS_a, strHandlerID_a, objParameters_a)
+{
+    var m_objThis = this;
+    var m_strHandlerID = strHandlerID_a;
+    var os = objOS_a;
+    var m_objParameters = objParameters_a || {};
+
+    function initialise()
+    {
+        // Bind events
+        os.element(m_strHandlerID, 'geActionButton').bind('click', 
+            actionButton_onClick);
+        
+        // Populate content
+        populateHandler();
+    }
+
+    function populateHandler()
+    {
+        // Set title from parameters or default
+        var strTitle = m_objParameters.title || 'Default Title';
+        os.element(m_strHandlerID, 'geTitle').text(strTitle);
+        
+        // Load data from server
+        var objRequest = os.createJSONRequest('mymodule.getData', []);
+        os.callServer(objRequest, function(objResponse_a)
+        {
+            displayData(objResponse_a);
+        });
+    }
+
+    function actionButton_onClick()
+    {
+        alert('Button clicked in handler: ' + m_strHandlerID);
+    }
+
+    function displayData(objData_a)
+    {
+        os.element(m_strHandlerID, 'geContent').html(objData_a.content);
+    }
+
+    // Optional: Cleanup
+    this.destroy = function()
+    {
+        // Cleanup code here (timers, listeners, etc.)
+    };
+
+    initialise();
+}</code></pre>
+
+        <h3>Handler Patterns</h3>
+
+        <h4>Variable Naming (Hungarian Notation)</h4>
+        <pre><code>var str = '';       // String
+var int = 0;        // Integer
+var bln = false;    // Boolean
+var obj = {};       // Object
+var arr = [];       // Array
+var flt = 0.0;      // Float
+
+// Scopes
+var m_strName;      // Module/member level
+var g_strName;      // Global
+
+// Parameters
+function myFunc(strParam_a, intValue_a) {
+    // Suffix _a for function arguments only
+}</code></pre>
+
+        <h4>Common Handler Methods</h4>
+        <pre><code>function initialise()      // Setup and event binding
+function populateHandler() // Load and display data
+function destroy()         // Cleanup (optional)
+
+// Event handlers: elementName_eventName
+function saveButton_onClick()
+function nameInput_onChange()
+function dataGrid_onLoad()</code></pre>
+
+        <h4>Nested Handlers</h4>
+        <pre><code>// Parent handler creates placeholders
+&lt;div class="geChildTarget1"&gt;&lt;/div&gt;
+&lt;div class="geChildTarget2"&gt;&lt;/div&gt;
+
+// Server injects child handlers
+$arrResponse[] = livewireServe('module', 'parent', 
+    $parentID, '', 'geMainTarget');
+$arrResponse[] = livewireServe('module', 'child1', 
+    getGUID(), $parentID, 'geChildTarget1');
+$arrResponse[] = livewireServe('module', 'child2', 
+    getGUID(), $parentID, 'geChildTarget2');</code></pre>
+
+        <h3>Testing Handlers</h3>
+        <p>Test handlers independently by creating a simple test harness:</p>
+        <pre><code>&lt;!-- test.html --&gt;
+&lt;div id="test-container"&gt;&lt;/div&gt;
+&lt;script src="inc-os.js"&gt;&lt;/script&gt;
+&lt;script src="myHandler.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+var os = new qriOS({listeners: []});
+var handler = new myHandler(os, 'test-container', {
+    title: 'Test Mode'
+});
+&lt;/script&gt;</code></pre>
+
+        <h2 id="server-modules">7. Server Modules</h2>
+
+        <h3>Module Registration</h3>
+        <p>Modules are registered in <code>inc-constants.php</code>:</p>
+        <pre><code>&lt;?php
+// Only load the modules you need
+$MODULES = ['livewire', 'security', 'system'];
+
+// Could be:
+// $MODULES = ['livewire', 'security', 'system', 'freight', 'analytics'];
+// Or minimal:
+// $MODULES = ['livewire'];</code></pre>
+
+        <div class="success-box">
+            <h4>Tiny Server Footprint</h4>
+            <p>Modules and their functions are loaded dynamically only when needed. Each module's <code>inc-entry.php</code> only loads if that module is in <code>$MODULES</code>, and individual function files are only included when that specific function is called. This keeps memory usage minimal—20 concurrent users can run comfortably on a 512MB Android box because only the required code is in memory.</p>
+        </div>
+
+        <p>Each module has an <code>inc-entry.php</code> that registers its functions:</p>
+        <pre><code>&lt;?php
+// modules/mymodule/inc-entry.php
+
+$arrFunctions = array(
+    'mymodule.function1' => array(
+        'file' => 'function1', 
+        'function' => 'function1'
+    ),
+    'mymodule.function2' => array(
+        'file' => 'function2',
+        'function' => 'function2'
+    )
+);
+
+dispatchFunction(__DIR__, $arrFunctions, $objDB, 
+    $strDataID, $strFunction, $arrParameters);</code></pre>
+
+        <h3>Implementing Server Functions</h3>
+        <pre><code>&lt;?php
+// modules/mymodule/function1.php
+
+function function1($objDB_a, $strDataID_a, $arrParameters_a)
+{
+    global $objSession;
+    
+    // Dynamically load dependencies only when needed
+    if (!dependencies(['mymodule/helperFunctions', 'shared/utilities']))
+    {
+        createJSONResponse($strDataID_a, RESPONSE_ERROR, 
+            'Missing dependencies', []);
+    }
+    
+    // Check authorization
+    if (!$objSession->hasStates(['loggedIn'])) {
+        createJSONResponse($strDataID_a, RESPONSE_ERROR, 
+            'Not authorized', []);
+    }
+    
+    // Get parameters
+    $strParam1 = getParameter($arrParameters_a, 'param1', true);
+    $strParam2 = getParameter($arrParameters_a, 'param2', false);
+    
+    // Process request
+    $arrResult = [
+        'value' => doSomething($strParam1, $strParam2)
+    ];
+    
+    // Return response
+    createJSONResponse($strDataID_a, RESPONSE_NOERROR, 
+        '', $arrResult);
+}</code></pre>
+
+        <div class="highlight-box">
+            <h4>Dynamic Dependency Loading</h4>
+            <p>The <code>dependencies()</code> function loads PHP files only when a function needs them. This keeps the server footprint tiny—instead of loading an entire module framework, each function only includes what it specifically requires. This is why 20 users can run on a 512MB device.</p>
+        </div>
+
+        <h3>Built-in Modules</h3>
+
+        <h4>Livewire Module</h4>
+        <p>Handles code delivery:</p>
+        <ul>
+            <li><code>livewire.listen</code> - Main polling endpoint</li>
+            <li><code>livewireServe()</code> - Packages handlers for delivery</li>
+        </ul>
+
+        <h4>Security Module</h4>
+        <p>Handles authentication:</p>
+        <ul>
+            <li><code>security.login</code> - User authentication</li>
+            <li><code>security.logout</code> - Session termination</li>
+        </ul>
+
+        <h4>System Module</h4>
+        <p>System utilities:</p>
+        <ul>
+            <li><code>system.ping</code> - Health check</li>
+            <li><code>system.getDatabaseName</code> - Configuration info</li>
+        </ul>
+
+        <h2 id="livewire-system">8. Livewire System</h2>
+
+        <h3>How Livewire Works</h3>
+        <ol>
+            <li>Client polls <code>livewire.listen</code></li>
+            <li>Server checks session state</li>
+            <li>Server decides which handlers to send</li>
+            <li>Server reads handler files from disk</li>
+            <li>Server encodes as base64</li>
+            <li>Server returns JSON with handler data</li>
+            <li>Client decodes and injects</li>
+            <li>Handler instantiates and executes</li>
+        </ol>
+
+        <h3>Livewire Event Format</h3>
+        <pre><code>{
+    "event": "livewire",
+    "data": {
+        "target": "geLivewireHTML",
+        "handler": "login",
+        "handlerID": "abc-123-def",
+        "parentHandlerID": "",
+        "html": "base64_encoded_html",
+        "css": "base64_encoded_css",
+        "js": "base64_encoded_js"
+    }
+}</code></pre>
+
+        <h3>State-Based Delivery</h3>
+        <pre><code>&lt;?php
+// Example: Progressive disclosure based on state
+
+if (!$objSession->hasStates(['loggedIn'])) {
+    // Not logged in - send login form
+    $strHandlerID = getGUID();
+    $arrResponse[] = livewireServe('poc', 'login', 
+        $strHandlerID, '', 'geLivewireHTML');
+    $objSession->states([], ['LoginFormRendered']);
+}
+else if ($objSession->hasStates(['loggedIn']) && 
+         !$objSession->hasStates(['frameRendered'])) {
+    // Logged in - send main application
+    $strFrameID = getGUID();
+    $arrResponse[] = livewireServe('poc', 'frame', 
+        $strFrameID, '', 'geLivewireHTML');
+    
+    // Nested child handlers
+    $arrResponse[] = livewireServe('poc', 'chart1', 
+        getGUID(), $strFrameID, 'geChart1Target');
+    $arrResponse[] = livewireServe('poc', 'chart2', 
+        getGUID(), $strFrameID, 'geChart2Target');
+    
+    $objSession->states([], ['frameRendered']);
+}</code></pre>
+
+        <h3>Handler Versioning</h3>
+        <p>Handlers update automatically when files change on server:</p>
+        <ol>
+            <li>Edit <code>loginHandler.js</code> on server</li>
+            <li>Save file</li>
+            <li>Next client poll loads new version</li>
+            <li>Old handler unregistered</li>
+            <li>New handler injected and instantiated</li>
+            <li>User sees updated UI (within 200-2000ms)</li>
+        </ol>
+
+        <div class="success-box">
+            <h4>Zero-Downtime Updates</h4>
+            <p>Edit code on a live server and users get updates automatically without page refresh. No deployment pipeline, no cache invalidation, no version numbers.</p>
+        </div>
+
+        <h2 id="session-management">9. Session Management</h2>
+
+        <h3>Session Storage Options</h3>
+        <p>qriOS supports two session storage backends:</p>
+
+        <h4>File-Based (Default)</h4>
+        <pre><code>define('DB_SESSIONS', false);
+
+// Sessions stored as JSON files in /sessions/
+// {sessionID}.json</code></pre>
+
+        <h4>Database-Based</h4>
+        <pre><code>define('DB_ENABLED', true);
+define('DB_SESSIONS', true);
+
+// Sessions stored in d_sessions table</code></pre>
+
+        <h3>Session API</h3>
+
+        <h4>Starting a Session</h4>
+        <pre><code>&lt;?php
+$objSession = new SessionClass($objDB);
+$strSessionID = $objSession->startSession($strSessionCookie);</code></pre>
+
+        <h4>Working with States</h4>
+        <pre><code>// Check states
+if ($objSession->hasStates(['admin', 'loggedIn'])) {
+    // User is admin AND logged in
+}
+
+// Add states
+$objSession->states([], ['loggedIn', 'verified']);
+
+// Remove states
+$objSession->states(['guest'], []);
+
+// Clear all and add new
+$objSession->states(['*'], ['loggedIn']);</code></pre>
+
+        <h4>Storing Data</h4>
+        <pre><code>// Store
+$objSession->setData('userName', 'John Doe');
+$objSession->setData('preferences', ['theme' => 'dark']);
+
+// Retrieve
+$strUserName = $objSession->getData('userName');
+$arrPrefs = $objSession->getData('preferences');</code></pre>
+
+        <h3>Session Schema</h3>
+        <pre><code>CREATE TABLE d_sessions (
+    session_id VARCHAR(64) PRIMARY KEY,
+    session_data TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+                ON UPDATE CURRENT_TIMESTAMP
+);</code></pre>
+
+        <h2 id="database">10. Database Layer</h2>
+
+        <h3>Database Functions</h3>
+        <p>qriOS provides a lightweight PDO wrapper with nested transaction support:</p>
+
+        <h4>Opening a Connection</h4>
+        <pre><code>$objDB = dbOpen(DB_HOST, DB_USER, DB_PASS, DB_NAME);</code></pre>
+
+        <h4>Executing Queries</h4>
+        <pre><code>// Execute (INSERT, UPDATE, DELETE)
+$strSQL = "UPDATE users SET name = '~NAME~' WHERE id = ~ID~";
+$strSQL = str_replace('~NAME~', ff($strName), $strSQL);
+$strSQL = str_replace('~ID~', ff($intID), $strSQL);  // ff() even for numbers!
+dbExecute($objDB, $strSQL);
+
+// Fetch single value
+$strSQL = "SELECT name as retvalue FROM users WHERE id = ~ID~";
+$strSQL = str_replace('~ID~', ff($intID), $strSQL);  // ff() even for numbers!
+$strValue = dbFetchValue($objDB, $strSQL);
+
+// Open recordset
+$strSQL = "SELECT * FROM users";
+$objRS = dbOpenRecordset($objDB, $strSQL);
+while ($objRow = dbFetchNext($objRS)) {
+    echo $objRow['name'];
+}
+dbCloseRecordset($objRS);</code></pre>
+
+        <h4>Transactions</h4>
+        <pre><code>dbBeginTrans($objDB);
+
+// Multiple operations
+dbExecute($objDB, $strSQL1);
+dbExecute($objDB, $strSQL2);
+
+// Automatically commits if no errors, rolls back if errors occurred
+dbEndTrans($objDB);</code></pre>
+
+        <div class="danger-box">
+            <h4>Critical: Never Manually Check Errors in Transactions</h4>
+            <p>The transaction system uses nested transaction counting. <strong>Every <code>dbBeginTrans()</code> MUST be matched with exactly one <code>dbEndTrans()</code></strong>, regardless of errors. If you manually check errors and skip <code>dbEndTrans()</code>, you'll create a begin/end mismatch that breaks the transaction counter.</p>
+            <pre><code>// WRONG - Creates transaction count mismatch
+dbBeginTrans($objDB);
+dbExecute($objDB, $strSQL1);
+if ($g_blnDatabaseError) {
+    return;  // ← Skipped dbEndTrans()! Counter now wrong!
+}
+dbEndTrans($objDB);
+
+// CORRECT - Always call dbEndTrans()
+dbBeginTrans($objDB);
+dbExecute($objDB, $strSQL1);
+dbExecute($objDB, $strSQL2);
+dbEndTrans($objDB);  // ← Always called, handles errors internally</code></pre>
+        </div>
+
+        <div class="highlight-box">
+            <h4>How Nested Transactions Work</h4>
+            <p>The framework tracks transaction nesting with <code>$g_intTransactionNestCount</code>:</p>
+            <ul>
+                <li><code>dbBeginTrans()</code> increments the counter (only actually calls <code>beginTransaction()</code> when counter = 0)</li>
+                <li><code>dbEndTrans()</code> decrements the counter</li>
+                <li>When counter reaches 0, <code>dbEndTrans()</code> checks <code>$g_blnDatabaseError</code>:
+                    <ul>
+                        <li>If true: calls <code>rollBack()</code> and returns false</li>
+                        <li>If false: calls <code>commit()</code> and returns true</li>
+                    </ul>
+                </li>
+                <li>Inner <code>dbEndTrans()</code> calls just decrement the counter without committing/rolling back</li>
+            </ul>
+            <p>This allows functions to use transactions safely without knowing if they're already inside a transaction. Any error at any nesting level causes the entire transaction to roll back when the outermost <code>dbEndTrans()</code> is reached.</p>
+        </div>
+
+        <h4>SQL Escaping</h4>
+        <pre><code>// Escape single value
+$strSafe = ff($strUnsafe);  // 'O\'Brien' becomes 'O\'\'Brien'
+
+// Escape nullable
+$strSafe = ffn($strValue);  // Empty string becomes 'null'</code></pre>
+
+        <div class="danger-box">
+            <h4>Critical: Always Use ff() for ALL Parameters</h4>
+            <p>Even numeric parameters MUST be wrapped in <code>ff()</code>. This is intentional—if someone passes a non-numeric value, the SQL will FAIL rather than potentially allowing injection. Bad SQL that fails is better than SQL that executes maliciously.</p>
+            <pre><code>// WRONG - Injection possible if $intID is "1 OR 1=1"
+$strSQL = str_replace('~ID~', $intID, $strSQL);
+
+// CORRECT - Will cause SQL error if not actually numeric
+$strSQL = str_replace('~ID~', ff($intID), $strSQL);</code></pre>
+            <p>The <code>ff()</code> function adds quotes around values, so "123" becomes "'123'". Most databases will cast this correctly for numeric columns, but will fail loudly if the value contains SQL injection attempts.</p>
+        </div>
+
+        <h2 id="advanced-features">11. Advanced Features</h2>
+
+        <h3>Multi-Server Support</h3>
+        <p>qriOS can communicate with multiple backend servers:</p>
+
+        <h4>Configuration</h4>
+        <pre><code>// inc-constants.js
+var SERVERS = {
+    'default': 'server.php',
+    'auth': 'https://auth.example.com/api',
+    'data': 'https://data.example.com/api',
+    'weather': 'https://api.weather.com/v1'
+};</code></pre>
+
+        <h4>Usage</h4>
+        <pre><code>// Call different servers
+os.callServer(authReq, callback, error, 'auth');
+os.callServer(dataReq, callback, error, 'data');
+os.callServer(weatherReq, callback, error, 'weather');</code></pre>
+
+        <h4>Federated Data Dashboard</h4>
+        <pre><code>function dashboardHandler(os, handlerID) {
+    // Internal system
+    os.callServer(freightReq, renderFreight, err, 'freight');
+    
+    // Third-party APIs
+    os.callServer(weatherReq, renderWeather, err, 'weather');
+    os.callServer(newsReq, renderNews, err, 'news');
+    
+    // Customer systems
+    if (hasERPAccess()) {
+        os.callServer(erpReq, renderERP, err, 'customer-erp');
+    }
+}</code></pre>
+
+        <h3>Offline Support</h3>
+        <p>Handler caching enables offline functionality:</p>
+
+        <h4>Caching Strategy</h4>
+        <pre><code>// Cache handlers as they load
+this.cacheHandler = function(strHandler_a, strHTML_a, strCSS_a, strJS_a) {
+    var objCache = {
+        html: strHTML_a,
+        css: strCSS_a,
+        js: strJS_a,
+        timestamp: Date.now()
+    };
+    localStorage.setItem('qrios_' + strHandler_a, 
+        JSON.stringify(objCache));
+};
+
+// Load from cache when offline
+this.getCachedHandler = function(strHandler_a) {
+    var strCache = localStorage.getItem('qrios_' + strHandler_a);
+    return strCache ? JSON.parse(strCache) : null;
+};</code></pre>
+
+        <h4>Offline Detection</h4>
+        <pre><code>window.addEventListener('online', function() {
+    console.log('Back online - syncing...');
+    syncOfflineQueue();
+});
+
+window.addEventListener('offline', function() {
+    console.log('Offline - using cached handlers');
+    loadCachedHandlers();
+});</code></pre>
+
+        <h3>ZOSCII Integration</h3>
+        <p>qriOS can integrate with ZOSCII for quantum-proof security:</p>
+
+        <h4>ZOSCII Decoding</h4>
+        <pre><code>this.zosciiDecode = function(arrAddresses_a, arrRomData_a) {
+    var strResult = "";
+    for (var intI = 0; intI < arrAddresses_a.length; intI++) {
+        var intAddress = arrAddresses_a[intI];
+        if (intAddress < arrRomData_a.length) {
+            strResult += String.fromCharCode(arrRomData_a[intAddress]);
+        }
+    }
+    return strResult;
+};</code></pre>
+
+        <h4>Encrypted Handler Delivery</h4>
+        <pre><code>// Server
+$arrAddresses = zosciiEncode($strJS, $arrRomData);
+$arrResult['data']['js'] = base64encode(json_encode($arrAddresses));
+$arrResult['data']['encoded'] = 'zoscii';
+
+// Client
+if (objData.encoded === 'zoscii') {
+    var arrAddresses = JSON.parse(os.base64decode(objData.js));
+    strJS = os.zosciiDecode(arrAddresses, romData);
+}</code></pre>
+
+        <div class="highlight-box">
+            <h4>Security Through Indirection</h4>
+            <p>ZOSCII doesn't encrypt—it uses address-based indirection. Without the ROM file, the address array is meaningless. This provides information-theoretic security that's quantum-proof by design.</p>
+        </div>
+
+        <h3>Progressive Web App</h3>
+        <p>Convert to installable PWA:</p>
+
+        <h4>Manifest</h4>
+        <pre><code>{
+    "name": "qriOS Application",
+    "short_name": "qriOS",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#3498db",
+    "icons": [
+        {
+            "src": "icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}</code></pre>
+
+        <h4>Service Worker</h4>
+        <pre><code>// sw.js
+self.addEventListener('install', function(event) {
+    event.waitUntil(
+        caches.open('qrios-v1').then(function(cache) {
+            return cache.addAll([
+                '/',
+                '/inc-os.js',
+                '/inc-constants.js'
+            ]);
+        })
+    );
+});</code></pre>
+
+        <h2 id="comparison">12. Comparison to Other Frameworks</h2>
+
+        <h3>qriOS vs React/Vue/Angular</h3>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>React/Vue/Angular</th>
+                <th>qriOS</th>
+            </tr>
+            <tr>
+                <td>Initial Bundle Size</td>
+                <td>500KB - 2MB</td>
+                <td>18KB</td>
+            </tr>
+            <tr>
+                <td>JavaScript Version</td>
+                <td>ES6+ (requires transpilation)</td>
+                <td>ES5 (runs natively everywhere)</td>
+            </tr>
+            <tr>
+                <td>Browser Support</td>
+                <td>Modern browsers only</td>
+                <td>IE9+ (2011) and newer</td>
+            </tr>
+            <tr>
+                <td>Build Step</td>
+                <td>Required (webpack/vite)</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>Hot Reload</td>
+                <td>Dev mode only</td>
+                <td>Production ready</td>
+            </tr>
+            <tr>
+                <td>Code Visibility</td>
+                <td>All code in browser</td>
+                <td>Only delivered code</td>
+            </tr>
+            <tr>
+                <td>Server Control</td>
+                <td>Client decides UI</td>
+                <td>Server decides UI</td>
+            </tr>
+            <tr>
+                <td>Learning Curve</td>
+                <td>Steep</td>
+                <td>Gentle</td>
+            </tr>
+            <tr>
+                <td>Legacy Systems</td>
+                <td>Not supported</td>
+                <td>Primary target</td>
+            </tr>
+        </table>
+
+        <h3>qriOS vs Meteor</h3>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Meteor</th>
+                <th>qriOS</th>
+            </tr>
+            <tr>
+                <td>Data on Wire</td>
+                <td class="checkmark">✓</td>
+                <td class="checkmark">✓</td>
+            </tr>
+            <tr>
+                <td>Hot Code Push</td>
+                <td class="checkmark">✓</td>
+                <td class="checkmark">✓</td>
+            </tr>
+            <tr>
+                <td>Real-time</td>
+                <td class="checkmark">✓ WebSocket</td>
+                <td class="checkmark">✓ Polling (upgradable)</td>
+            </tr>
+            <tr>
+                <td>Framework Size</td>
+                <td class="xmark">✗ 200KB+</td>
+                <td class="checkmark">✓ 18KB</td>
+            </tr>
+            <tr>
+                <td>Database Lock-in</td>
+                <td class="xmark">✗ MongoDB only</td>
+                <td class="checkmark">✓ Any database</td>
+            </tr>
+            <tr>
+                <td>Scaling</td>
+                <td class="xmark">✗ Complex</td>
+                <td class="checkmark">✓ Stateless</td>
+            </tr>
+            <tr>
+                <td>Security</td>
+                <td class="xmark">✗ Client DB access</td>
+                <td class="checkmark">✓ Server controlled</td>
+            </tr>
+        </table>
+
+        <h3>qriOS vs Traditional PHP/JS Hybrid</h3>
+        <table>
+            <tr>
+                <th>Aspect</th>
+                <th>PHP Hybrid</th>
+                <th>qriOS</th>
+            </tr>
+            <tr>
+                <td>PHP Version</td>
+                <td>Often requires 7.4+</td>
+                <td>Works with 5.4+ (2012)</td>
+            </tr>
+            <tr>
+                <td>JavaScript</td>
+                <td>Often ES6+ with build</td>
+                <td>ES5 (no build needed)</td>
+            </tr>
+            <tr>
+                <td>Initial Load</td>
+                <td>Server renders HTML</td>
+                <td>Static shell</td>
+            </tr>
+            <tr>
+                <td>Code Organization</td>
+                <td>Mixed PHP/JS/HTML</td>
+                <td>Clean separation</td>
+            </tr>
+            <tr>
+                <td>Cacheable</td>
+                <td>No (dynamic PHP)</td>
+                <td>Yes (static assets)</td>
+            </tr>
+            <tr>
+                <td>Updates</td>
+                <td>Page refresh required</td>
+                <td>Hot reload</td>
+            </tr>
+            <tr>
+                <td>Testing</td>
+                <td>Difficult</td>
+                <td>Easy (isolated handlers)</td>
+            </tr>
+            <tr>
+                <td>Reusability</td>
+                <td>PHP includes</td>
+                <td>Portable handlers</td>
+            </tr>
+            <tr>
+                <td>Embedded Systems</td>
+                <td>Possible but heavy</td>
+                <td>Optimized for (512MB viable)</td>
+            </tr>
+        </table>
+
+        <h2 id="security">13. Security Considerations</h2>
+
+        <div class="danger-box">
+            <h4>Current POC Limitations</h4>
+            <p>This is a proof-of-concept implementation. The following security improvements are recommended for production use:</p>
+        </div>
+
+        <h3>Known Issues</h3>
+
+        <h4>1. SQL Injection Risk</h4>
+        <p><strong>Current:</strong> String substitution with custom escaping</p>
+        <pre><code>$strSQL = "SELECT * FROM users WHERE id = '~ID~'";
+$strSQL = str_replace('~ID~', ff($intID), $strSQL);</code></pre>
+        <p><strong>Recommended:</strong> Use prepared statements</p>
+        <pre><code>$stmt = $objDB->prepare("SELECT * FROM users WHERE id = ?");
+$stmt->execute([$intID]);</code></pre>
+
+        <h4>2. Session Fixation</h4>
+        <p><strong>Current:</strong> Client generates session ID</p>
+        <pre><code>m_strSessionCookie = m_objThis.getGUID();</code></pre>
+        <p><strong>Recommended:</strong> Server generates and validates session IDs</p>
+
+        <h4>3. No CSRF Protection</h4>
+        <p><strong>Current:</strong> No token validation</p>
+        <p><strong>Recommended:</strong> Implement CSRF tokens for state-changing operations</p>
+
+        <h4>4. Hardcoded Credentials</h4>
+        <p><strong>Current:</strong> Demo credentials in code</p>
+        <pre><code>if ($strUsername === 'admin' && $strPassword === 'password')</code></pre>
+        <p><strong>Recommended:</strong> Use proper authentication system with hashed passwords</p>
+
+        <h3>Security Best Practices</h3>
+
+        <h4>Server-Side Validation</h4>
+        <pre><code>function processRequest($objDB_a, $strDataID_a, $arrParameters_a)
+{
+    global $objSession;
+    
+    // 1. Check authentication
+    if (!$objSession->hasStates(['loggedIn'])) {
+        createJSONResponse($strDataID_a, RESPONSE_ERROR, 
+            'Unauthorized', []);
+    }
+    
+    // 2. Check authorization
+    if (!$objSession->hasStates(['admin'])) {
+        createJSONResponse($strDataID_a, RESPONSE_ERROR, 
+            'Forbidden', []);
+    }
+    
+    // 3. Validate inputs
+    $strParam = getParameter($arrParameters_a, 'param', true);
+    if (!validateParam($strParam)) {
+        createJSONResponse($strDataID_a, RESPONSE_ERROR, 
+            'Invalid parameter', []);
+    }
+    
+    // 4. Process request
+    // ...
+}</code></pre>
+
+        <h4>State-Based Access Control</h4>
+        <pre><code>// Only deliver admin handlers to admin users
+if ($objSession->hasStates(['admin'])) {
+    $arrResponse[] = livewireServe('admin', 'adminPanel', ...);
+}
+
+// Regular users never see the code
+// Can't access what doesn't exist client-side</code></pre>
+
+        <h4>Content Security Policy</h4>
+        <pre><code>// Add to server.php or .htaccess
+header("Content-Security-Policy: default-src 'self'; " .
+       "script-src 'self' 'unsafe-inline'; " .
+       "style-src 'self' 'unsafe-inline'");</code></pre>
+
+        <h3>HTTPS Requirement</h3>
+        <div class="warning-box">
+            <p>Always use HTTPS in production. Session cookies and sensitive data must be encrypted in transit.</p>
+        </div>
+
+        <h2 id="roadmap">14. Roadmap Ideas</h2>
+
+        <h3>Completed (POC Phase)</h3>
+        <ul class="checkmark">
+            <li>✓ Core qriOS substrate (18KB)</li>
+            <li>✓ Livewire code delivery system</li>
+            <li>✓ Handler pattern and lifecycle</li>
+            <li>✓ Session management (file and DB)</li>
+            <li>✓ State machine architecture</li>
+            <li>✓ Module system</li>
+            <li>✓ Database abstraction layer</li>
+            <li>✓ JSON-RPC communication</li>
+            <li>✓ Nested handler support</li>
+            <li>✓ Adaptive polling</li>
+        </ul>
+
+        <h3>Phase 2: Security & Production</h3>
+        <ul>
+            <li>Migrate to prepared statements</li>
+            <li>Implement CSRF protection</li>
+            <li>Server-generated session IDs</li>
+            <li>Password hashing (bcrypt/argon2)</li>
+            <li>Rate limiting</li>
+            <li>Input validation framework</li>
+            <li>Security audit and penetration testing</li>
+        </ul>
+
+        <h3>Phase 3: Advanced Features</h3>
+        <ul>
+            <li>WebSocket upgrade option</li>
+            <li>Handler caching and offline support</li>
+            <li>Progressive Web App manifest</li>
+            <li>Service Worker integration</li>
+            <li>Multi-server federation</li>
+            <li>ZOSCII integration</li>
+            <li>Handler versioning and rollback</li>
+            <li>A/B testing framework</li>
+        </ul>
+
+        <h3>Phase 4: Developer Experience</h3>
+        <ul>
+            <li>CLI tools for handler generation</li>
+            <li>Development mode with enhanced debugging</li>
+            <li>Handler testing framework</li>
+            <li>Documentation generator</li>
+            <li>Visual handler debugger</li>
+            <li>Performance profiling tools</li>
+            <li>Migration utilities</li>
+        </ul>
+
+        <h3>Phase 5: Ecosystem</h3>
+        <ul>
+            <li>Handler marketplace/repository</li>
+            <li>Standard handler library (forms, grids, charts)</li>
+            <li>Backend adapters (Node.js, Python, Go, Rust)</li>
+            <li>Integration adapters (REST APIs, GraphQL, etc.)</li>
+            <li>Third-party authentication (OAuth, SAML)</li>
+            <li>Deployment templates (Docker, Kubernetes)</li>
+            <li>Cloud provider integrations</li>
+        </ul>
+
+        <h3>Future Considerations</h3>
+        <ul>
+            <li>React/Vue/Svelte handler adapters</li>
+            <li>Mobile native wrappers (Capacitor/React Native)</li>
+            <li>Desktop application (Electron/Tauri)</li>
+            <li>Real-time collaboration features</li>
+            <li>Plugin system for extending core</li>
+            <li>Visual handler designer</li>
+            <li>AI-assisted handler generation</li>
+        </ul>
+
+        <div class="highlight-box">
+            <h4>Community Involvement</h4>
+            <p>qriOS is designed to be extensible and community-driven. We welcome contributions, feedback, and ideas from developers who see the potential in this architecture.</p>
+        </div>
+
+        <h2>Conclusion</h2>
+
+        <p>qriOS represents a fundamentally different approach to web application architecture. By treating code as data and giving the server control over UI delivery, it achieves:</p>
+
+        <ul>
+            <li><strong>Simplicity:</strong> No build tools, no complex state management, no routing libraries</li>
+            <li><strong>Size:</strong> 18KB substrate vs. megabytes of traditional frameworks</li>
+            <li><strong>Security:</strong> Server controls what code exists client-side</li>
+            <li><strong>Flexibility:</strong> Hot reload, multi-server support, offline capability</li>
+            <li><strong>Speed:</strong> Both development velocity and runtime performance</li>
+        </ul>
+
+        <p>Built in a single day as a proof-of-concept, qriOS demonstrates that revolutionary architecture doesn't require years of development or massive teams. Sometimes, the best solution is the one that questions fundamental assumptions and builds from first principles.</p>
+
+        <div class="success-box">
+            <h4>Get Started</h4>
+            <p>The complete qriOS codebase is available for evaluation. Try building a handler—you'll be surprised how quickly you can create functional, production-ready components.</p>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <div class="support-box">
+            <h2>🦄 Support Cyborg Unicorn</h2>
+            <p>This documentation represents cutting-edge architectural thinking. If you find value in this work, consider supporting continued research and development.</p>
+            <a href="https://cyborguni.corn" class="btn">Visit Cyborg Unicorn</a>
+        </div>
+        <p style="margin-top: 20px; color: #666;">© 2025 Cyborg Unicorn Pty Ltd. All rights reserved.</p>
+    </div>
+</body>
+</html>

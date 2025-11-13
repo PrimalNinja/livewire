@@ -1,0 +1,4 @@
+function doNothing()
+{
+    // do nothing
+};

@@ -1,0 +1,48 @@
+.geFrameHandler {
+    padding: 20px;
+}
+
+.geLogoutButton {
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.geLogoutButton:hover {
+    background-color: #c82333;
+}
+
+.geChartContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 20px;
+}
+
+.geChart1Target, .geChart2Target {
+    flex: 1;
+    max-width: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Mobile responsive */
+@media (max-width: 1280px) {
+    .geChartContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .geChart1Target, .geChart2Target {
+        width: 100%;
+        max-width: 100%;
+    }
+}
