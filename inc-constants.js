@@ -1,1 +1,1 @@
-var APPTITLE = 'Livewire Demo';
+var APPTITLE = 'Cyborg Livewire Demo';

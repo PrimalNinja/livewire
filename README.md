@@ -1,7 +1,7 @@
-# Livewire Framework
+# Cyborg Livewire Framework
 
 ## Overview
-Livewire is a lightweight, server-driven web application framework that delivers UI components dynamically as JSON payloads. It combines traditional server-rendered applications with modern single-page application architectures, maintaining a minimal 18KB footprint.
+Cyborg Livewire is a lightweight, server-driven web application framework that delivers UI components dynamically as JSON payloads. It combines traditional server-rendered applications with modern single-page application architectures, maintaining a minimal 18KB footprint.
 
 ## Key Features
 - **Server Authority**: Server controls UI and functionality
@@ -16,7 +16,7 @@ Livewire is a lightweight, server-driven web application framework that delivers
   - Static HTML shell + inc-os.js (18KB)
   - Handlers injected as JSON
 - Backend (PHP)
-  - Modules (livewire, security, system)
+  - Modules (cyborg livewire, security, system)
   - Session management
 - Communication: JSON-RPC over HTTP
 
