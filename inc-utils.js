@@ -1,4 +1,4 @@
 function doNothing()
 {
     // do nothing
-};
+}

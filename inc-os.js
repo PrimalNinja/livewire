@@ -1,3 +1,7 @@
+// CyborgWiki v20251112
+// (c) 2025 Cyborg Unicorn Pty Ltd.
+// This software is released under MIT License.
+
 function qriOS(objOptions_a) 
 {
     var LIVEWIRETICKFAST = 200;   // in milliseconds
@@ -161,7 +165,7 @@ function qriOS(objOptions_a)
         }
     
         return arrStates_a;
-    }
+    };
     
     // tickers
     this.after = function(intMilliSeconds_a, cbTimeout_a)
@@ -529,10 +533,10 @@ function qriOS(objOptions_a)
     {
         var objRequest = 
         {
-            sessioncookie: m_strSessionCookie,
-            dataid: m_intDataID,
-            function: strFunction_a,
-            parameters: arrParameters_a || []
+            "sessioncookie": m_strSessionCookie,
+            "dataid": m_intDataID,
+            "function": strFunction_a,
+            "parameters": arrParameters_a || []
         };
         m_intDataID++;
 
