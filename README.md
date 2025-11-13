@@ -1,7 +1,7 @@
-# qriOS Framework
+# Livewire Framework
 
 ## Overview
-qriOS is a lightweight, server-driven web application framework that delivers UI components dynamically as JSON payloads. It combines traditional server-rendered applications with modern single-page application architectures, maintaining a minimal 18KB footprint.
+Livewire is a lightweight, server-driven web application framework that delivers UI components dynamically as JSON payloads. It combines traditional server-rendered applications with modern single-page application architectures, maintaining a minimal 18KB footprint.
 
 ## Key Features
 - **Server Authority**: Server controls UI and functionality
