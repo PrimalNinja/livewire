@@ -1,1 +1,1 @@
-var APPTITLE = 'qriOS Demo';
+var APPTITLE = 'Livewire Demo';
